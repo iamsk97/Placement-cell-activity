@@ -1,0 +1,34 @@
+docker commands:
+
+ 
+   1  yum install docker
+   2  service docker start
+   3  docker ps -a   
+   4  docker node ls
+   5  docker swarm join \--token SWMTKN-1-5eulzbqyaevfiat3x37mvxke4nbt63ulgw4weysvpohkc6yskw-1rlpfn6zflasx75bkt8dnrzbp 13.127.0.101:2377
+   6  docker ps
+   7  docker node ls
+   8  yum install httpd
+   9  docker run -v /var/www/html
+   10  docker images 
+   11  docker pull centos
+   12  docker images
+   13  docker run -d --name my-site centos:latest
+   14  vim dockerfile
+   15  docker build
+   16  docker build -t myapache:t1 .
+   17   docker run -d -v /var/www/html:/var/www/html  --name my-site centos:latest
+   18  cat dockerfile
+   19   docker run -d -v /var/www/html:/var/www/html -p 80:80  --name my-site myapache:t1
+   20  docker ps -a
+   21  docker stop 01b98d24140f
+   22  docker rm 01b98d24140f
+   23   docker run -d -v /var/www/html:/var/www/html -p 80:80  --name my-site myapache:t1
+   24  docker ps
+
+/*docker file contents*/
+cat dockerfile
+
+FROM centos
+RUN yum install httpd -y
+CMD ["/usr/sbin/apachectl","-D","FOREGROUND"]
