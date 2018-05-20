@@ -25,6 +25,8 @@ docker commands:
    22  docker rm 01b98d24140f
    23   docker run -d -v /var/www/html:/var/www/html -p 80:80  --name my-site myapache:t1
    24  docker ps
+   25 docker swarm init --advertise-addr 13.127.0.101
+   26 docker service create --name myweb --mount type=bind,source=/var/www/html --publish published=80,target=80 --replicas 2 myapache:t1
 
 /*docker file contents*/
 cat dockerfile
